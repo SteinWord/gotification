@@ -1,6 +1,8 @@
-package main
+package gotest
 
-import ()
+import (
+	"testing"
+)
 
 func main() {
 	dataA := []string{"A"}
