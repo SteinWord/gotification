@@ -3,6 +3,7 @@ package gotification
 import (
 	"github.com/alexjlockwood/gcm"
 	"github.com/mattprice/Go-APNs"
+	"time"
 )
 
 var (
@@ -29,14 +30,20 @@ func (c *Config) Set() {
 func (n *Notification) Notify() (result bool) {
 	go func() {
 		for _, v := range n.AndroidReceivers {
-			gcm(v, n.Message, gcmkey)
+			test(v, n.Message, gcmkey)
 		}
 	}()
 	go func() {
 		for _, v := range n.IOSReceivers {
-			apn(v, n.Message, apnpem)
+			test(v, n.Message, apnpem)
 		}
 	}()
+}
+
+func test(att string, msg string, cert string) (status bool) {
+	status = true
+	println(time.Now, att, msg, cert)
+	time.Sleep(1 * time.Second)
 }
 
 func apn(att string, msg string, certpem string) (status bool) {
