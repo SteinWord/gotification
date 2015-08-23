@@ -1,6 +1,7 @@
 package gotification
 
 import (
+	"fmt"
 	"github.com/alexjlockwood/gcm"
 	"github.com/mattprice/Go-APNs"
 	"time"
@@ -65,7 +66,7 @@ func gcm(att string, msg string, apikey string) (status bool) {
 	status = true
 	d := map[string]interface{}{"message": msg}
 	sender := &gcm.Sender{ApiKey: apikey}
-	data := gcm.NewMessage(d, regId)
+	data := gcm.NewMessage(d, att)
 	_, err := sender.Send(data, 2)
 	if err != nil {
 		status = false
