@@ -15,4 +15,5 @@ func main() {
 	c := gotification.Config{"s", "t"}
 	c.Set()
 	n.Notify()
+	println("finish")
 }
