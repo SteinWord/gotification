@@ -22,3 +22,7 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+testfile/sandbox.pem
+
+cmd/gotification/main.go
